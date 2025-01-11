@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar"
 import Projects from "./components/Projects/Projects"
 import "./App.scss"
 
-
 function App() {
 
   return (

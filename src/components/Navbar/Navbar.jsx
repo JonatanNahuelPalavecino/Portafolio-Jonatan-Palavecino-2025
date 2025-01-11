@@ -38,7 +38,7 @@ const Navbar = (props) => {
   return (
     <>
       <HideOnScroll {...props}>
-        <AppBar sx={{backgroundColor: "transparent", boxShadow: "none"}}>
+        <AppBar sx={{backgroundColor: "rgb(255, 255, 255)", boxShadow: "none"}}>
           <Toolbar
             sx={{
               justifyContent: "center"

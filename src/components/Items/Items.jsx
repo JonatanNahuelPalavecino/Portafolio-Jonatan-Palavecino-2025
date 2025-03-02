@@ -1,82 +1,46 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Items.scss";
-
-const skillsInDetails = [
-  {
-    id: 1,
-    skill: "Javascript",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 2,
-    skill: "ReactJS",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 3,
-    skill: "NodeJS",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 4,
-    skill: "ExpressJS",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 5,
-    skill: "Python",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 6,
-    skill: "MySQL",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 7,
-    skill: "SQL",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 8,
-    skill: "HTML5",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 9,
-    skill: "CSS3",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 10,
-    skill: "SASS",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-  {
-    id: 11,
-    skill: "Frameworks y Librerias",
-    details: ["Habilidad 1", "Habilidad 2", "Habilidad 3", "Habilidad 4"],
-  },
-];
+import { useEffect } from "react";
+import useFetch from "../Hooks/useFetch";
 
 const Items = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
+  const { data, error, loading, fetchData } = useFetch();
+  const url = import.meta.env.VITE_SERVER
+
+  useEffect(() => {
+    fetchData(`${url}/conocimientos/ver-total-conocimientos`, {});
+  }, [fetchData, url]);
 
   return (
     <>
       <div className="items">
-        {skillsInDetails.map((skill) => (
+        {loading ? (
+          Array.from({ length: 5 }).map((_, index) => (
+            <motion.div key={index} className="items-card items-skeletor" />
+          ))
+        ) : error ? (
           <motion.div
-            key={skill.id}
             className="items-card"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setSelectedSkill(skill)}
           >
-            <p className="items-text">{skill.skill}</p>
+            <p className="items-text">{error}</p>
           </motion.div>
-        ))}
+        ) : (
+          data.map((skill) => (
+            <motion.div
+              key={skill.id_conocimiento}
+              className="items-card"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setSelectedSkill(skill.detalle)}
+            >
+              <p className="items-text">{skill.nombre}</p>
+            </motion.div>
+          ))
+        )}
       </div>
 
       <AnimatePresence>
@@ -97,9 +61,9 @@ const Items = () => {
             >
               <h2 className="items-modal-title">{selectedSkill.skill}</h2>
               <ul className="items-modal-box">
-                {selectedSkill.details.map((detail, index) => (
+                {selectedSkill.map((detail, index) => (
                   <li className="items-modal-text" key={index}>
-                    ✅ {detail}
+                    ✅ {detail.detalle}
                   </li>
                 ))}
               </ul>
@@ -109,7 +73,6 @@ const Items = () => {
                 viewBox="0 0 24 24"
                 className="items-modal-btn"
                 onClick={() => setSelectedSkill(null)}
-
               >
                 <g strokeWidth="0" id="SVGRepo_bgCarrier"></g>
                 <g

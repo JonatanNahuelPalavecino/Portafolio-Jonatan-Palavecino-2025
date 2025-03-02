@@ -12,6 +12,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        
+        @media (max-width: 768px) {
+            margin: 3rem 0 0;
+        }
+        
+        @media (max-width: 650px) {
+            margin: 4rem 0 0;
+        }
     }
     
     &-title {
@@ -22,6 +31,14 @@
         font-style: normal;
         text-transform: uppercase;
         margin: 0;
+
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
+
+        @media (max-width: 650px) {
+            font-size: 2.3rem;
+        }
     }
     
     &-subtitle {
@@ -32,12 +49,25 @@
         text-shadow: 0 0 6px  black;
         margin: .5rem 0;
         letter-spacing: 3px;
+
+        @media (max-width: 768px) {
+            font-size: 3rem;
+        }
+
+        @media (max-width: 650px) {
+            font-size: 2.7rem;
+        }
     }
 
     &-box {
         position: relative;
         width: 300px;
         height: 350px;
+
+        @media (max-width: 650px) {
+            width: 250px;
+            height: 300px;
+        }
     }
 
     &-fondo {

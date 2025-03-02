@@ -1,77 +1,110 @@
 .nav {
-    position: relative;
-    width: 100%;
-    height: 75px;
+  position: relative;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  // background-color: white;
+  z-index: 3;
+
+  &-show {
+    position: fixed;
+    transition: background-color 0.5s ease-in-out;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+    animation: movimiento 0.6s;
+  }
+
+  &-img {
+    position: absolute;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+  }
+
+  &-container {
+    min-width: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0px black;
+    padding: 10px;
+
+    @media (max-width: 769px) {
+      display: none;
+    }
+  }
+
+  &-items {
+    font-family: "Roboto Flex", serif;
+    text-transform: uppercase;
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border-radius: 5px;
+      box-shadow: 0px 1px 2px 1px black;
+    }
+  }
+
+  &-toggle {
+    position: absolute !important;
+    right: 20px;
+    margin: 0 1rem !important;
+
+    & > svg {
+      color: black;
+    }
+
+    @media (min-width: 769px) {
+      display: none !important;
+    }
+  }
+
+  &-user {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  &-login {
+    position: absolute;
+    right: 0;
+    display: flex;
     align-items: center;
-    transition: all 0.5s ease-in-out;
-    // background-color: white;
-    z-index: 3;
+    width: 30px;
+    height: 100%;
+    border-left: 1px solid black;
+    cursor: pointer;
 
-    &-show {
-        position: fixed;
-        transition: background-color 0.5s ease-in-out; 
-        box-shadow: 1px 1px 10px rgba(0,0,0,.15);
-        animation: movimiento .6s;
+    & > svg {
+      width: 30px;
+      height: 20px;
+      color: black;
+      padding: 0 5px;
     }
+  }
 
-    &-img {
-        position: absolute;
-        left: 0;
-        width: 50px;
-        height: 50px;
-        padding: 5px;
-    }
-
-    &-container {
-        min-width: 400px;
-        display: flex;
-        justify-content: space-between;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 0 5px 0px black;
-        padding: 10px;
-    }
-
-    &-items {
-        font-family: "Roboto Flex", serif;
-        text-transform: uppercase;
-        padding:  5px;
-        color: black;
-        cursor: pointer;
-        transition: all .3s ease-in-out;
-
-        &:hover {
-            border-radius: 5px;
-            box-shadow: 0px 1px 2px 1px black;
-        }
-    }
-
-    &-social {
-        position: absolute;
-        right: 0;
-        min-width: 100px;
-        display: flex;
-
-        & > svg {
-            color: black;
-            width: 30px;
-            padding: 0 5px;
-            transition: transform .3s ease-in;
-
-            &:hover {
-                transform: translateY(-5px);
-            }
-        }
-    }
+  &-userName {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
 
 @keyframes movimiento {
-    0% {
-        transform: translateY(-100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

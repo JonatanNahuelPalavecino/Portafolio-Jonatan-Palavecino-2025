@@ -6,7 +6,14 @@ const useForm = (initialForm = {}) => {
   const [state, dispatch] = useReducer(formReducer ,initialForm);
 
   const onInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, files } = e.target;
+
+    if (files) {
+      return dispatch({
+        type: "upload image",
+        payload: {key: name, file: files[0]}
+      })
+    }
 
     dispatch({
       type: "update",

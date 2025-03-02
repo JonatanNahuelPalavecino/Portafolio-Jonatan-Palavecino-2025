@@ -1,0 +1,18 @@
+.boton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(145deg, #ff6b6b, #d43636);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+
+  &-text {
+    font-family: "Roboto Flex", serif;
+    color: black;
+    padding: 0 0.5rem;
+  }
+}

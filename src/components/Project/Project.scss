@@ -1,0 +1,44 @@
+.project {
+  margin: 0 0 2rem;
+
+  &-img {
+    width: 100%;
+  }
+
+  &-description {
+    margin: 2rem;
+  }
+
+  &-links {
+    display: flex;
+    justify-content: flex-start;
+    margin:  0 0 2rem;
+  }
+
+  &-item {
+    color: black;
+    width: 30px;
+    margin: 0 5px;
+  }
+
+  &-text, &-desc {
+    font-family: "Roboto Flex", serif;
+    font-style: normal;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    line-height: 2rem;
+    padding: 0 0 .5rem;
+
+    
+    @media (max-width: 650px) {
+      word-spacing: 0;
+      line-height: 1.5rem;
+      padding: 0 0 1rem;
+  }
+  }
+
+  &-text {
+    text-decoration: underline;
+  }
+}

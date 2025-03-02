@@ -1,0 +1,83 @@
+.comentario {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 650px) {
+    margin: 1rem;
+  }
+
+  &-box {
+    display: flex;
+    align-items: center;
+  }
+
+  &-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 0.5rem 0 0;
+
+    @media(max-width: 650px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &-user,
+  &-description {
+    font-family: "Roboto Flex", serif;
+  }
+
+  &-description {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 1rem;
+
+    @media(max-width: 650px) {
+      font-size: 1rem;
+    }
+  }
+
+  &-form {
+    max-width: 80%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-textarea {
+    font-family: "Roboto Flex", serif;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 1px solid #c3c3c3;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
+    resize: none;
+    height: 96px;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &-btn {
+    position: relative;
+    font-family: "Roboto Flex", serif;
+    font-weight: 600;
+    width: 40%;
+    background: transparent;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #c3c3c3;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+}

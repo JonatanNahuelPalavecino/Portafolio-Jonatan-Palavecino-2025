@@ -1,0 +1,33 @@
+.social {
+    position: absolute;
+    min-width: 100px;
+    display: flex;
+
+    &-right {
+        right: 35px;
+    }
+
+    &-bottom {
+        bottom: 0;
+        margin: 1rem 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    @media (max-width: 769px) {
+        &-hidde {
+            display: none;
+        }
+    }
+
+    &-icon {
+        color: black;
+        width: 30px;
+        padding: 0 5px;
+        transition: transform .3s ease-in;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}

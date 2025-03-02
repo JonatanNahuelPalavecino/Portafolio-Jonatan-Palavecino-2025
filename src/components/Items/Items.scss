@@ -9,13 +9,18 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    width: 200px;
-    height: 75px;
+    min-width: 200px;
+    min-height: 75px;
     background: linear-gradient(145deg, #ff6b6b, #d43636);
     box-shadow: 2px 3px 3px #ba2f2f, 2px 3px 3px #ff4949;
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
+  }
+
+  &-skeletor {
+    background: transparent;
+    animation: skeleton-loading 1.5s infinite;
   }
 
   &-text {
@@ -87,5 +92,18 @@
           color: white;
       }
     }
+  }
+}
+
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #ff6b6b;
+  }
+  50% {
+    background-color: #d43636;
+  }
+  100% {
+    background-color: #ff6b6b;
   }
 }

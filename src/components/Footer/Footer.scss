@@ -1,0 +1,24 @@
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff1200;
+    
+    &-title {
+        font-family: "Roboto Flex", serif;
+        text-align: center;
+        padding: 1rem;
+
+        @media (max-width: 550px) {
+            font-size: .8rem;
+            width: 200px;
+        }
+    }
+
+    &-img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+    }
+}

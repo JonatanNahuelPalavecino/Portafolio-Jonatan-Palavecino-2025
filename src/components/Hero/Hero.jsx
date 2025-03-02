@@ -1,7 +1,7 @@
 import { Element } from "react-scroll"
 import foto from "../../assets/foto-jonatan.png"
 import fondo from "../../assets/graph.png"
-import "./hero.scss"
+import "./Hero.scss"
 import Bubbles from "../Bubbles/Bubbles"
 
 const Hero = () => {

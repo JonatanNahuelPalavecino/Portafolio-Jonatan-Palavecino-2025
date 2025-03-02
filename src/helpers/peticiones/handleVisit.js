@@ -14,7 +14,7 @@ const handleVisit = async (url, location, user) => {
             })
         })
         const data = await result.json()
-        console.log(data)
+        localStorage.setItem("visita", data)
     } catch (error) {
         console.log(error)
     }

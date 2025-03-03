@@ -4,6 +4,7 @@ import verifyToken from "../../helpers/validation/verifyToken";
 import { useLocation } from "react-router-dom";
 import handleVisit from "../../helpers/peticiones/handleVisit";
 import PropTypes from "prop-types"
+
 const Layout = ({children}) => {
 
   const { setUser, user } = useContext(Context);
@@ -23,6 +24,8 @@ const Layout = ({children}) => {
       await handleVisit(url, location.pathname, user)
     }
     registerVisit()
+
+  
     
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);

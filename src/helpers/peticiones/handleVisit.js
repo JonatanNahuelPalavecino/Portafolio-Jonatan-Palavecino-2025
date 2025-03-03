@@ -1,8 +1,10 @@
-
+import handleObtenerIp from "./handleObtenerIp"
 
 const handleVisit = async (url, location, user) => {
 
+    
     try {
+        const ip = await handleObtenerIp()
         const result = await fetch(`${url}/datos/registrar-visita`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -10,7 +12,8 @@ const handleVisit = async (url, location, user) => {
                 ruta: location,
                 user_agent: navigator.userAgent,
                 referer: document.referrer,
-                id_usuario: user?.userId || null
+                id_usuario: user?.userId || null,
+                ip: ip
             })
         })
         const data = await result.json()

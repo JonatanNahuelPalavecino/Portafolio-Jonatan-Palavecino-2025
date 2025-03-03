@@ -5,7 +5,7 @@ const handleVisit = async (url, location, user) => {
     
     try {
         const ip = await handleObtenerIp()
-        const result = await fetch(`${url}/api/datos/registrar-visita`, {
+        const result = await fetch(`${url}/datos/registrar-visita`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

@@ -1,6 +1,4 @@
-﻿Welcome file
-
-# Bienvenido al Frontend del [Portfolio de Jonatan Palavecino](https://jonatanpalavecino.com.ar)
+﻿# Bienvenido al Frontend del [Portfolio de Jonatan Palavecino](https://jonatanpalavecino.com)
 
 Hola! Mi nombre es Jonatan Palavecino y aca te explicaré un poco la estructura del código con el cuál armé la interface para el portoflio.
 
